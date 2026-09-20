@@ -1,0 +1,441 @@
+/* ==========================================================================
+   Psych X Code - CSS Stylesheet
+   ========================================================================== */
+
+/* Design Tokens & Variables */
+:root {
+    --bg-main: #0b0f19;
+    --bg-card: #131b2e;
+    --bg-card-hover: #1a2540;
+    --border-color: rgba(255, 255, 255, 0.08);
+    --border-hover: rgba(56, 189, 248, 0.3);
+    
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    
+    --accent-blue: #38bdf8;
+    --accent-blue-hover: #0ea5e9;
+    --accent-gradient: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
+    
+    --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reset & Global Box Sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* App Container Layout */
+.app-container {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header & Navbar */
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 2.5rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+}
+
+.logo-icon {
+    font-size: 1.5rem;
+}
+
+.logo h1 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+}
+
+.nav-btn {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-family: var(--font-main);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+    border-color: var(--border-hover);
+}
+
+/* View Management (SPA Transitions) */
+.view {
+    display: none;
+    flex: 1;
+    animation: fadeIn 0.35s ease forwards;
+}
+
+.view.active {
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hero Section (Home View) */
+.hero-section {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.35rem 0.85rem;
+    background: rgba(56, 189, 248, 0.1);
+    color: var(--accent-blue);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+}
+
+.hero-section h2 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.75rem;
+}
+
+.hero-section p {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Labs Grid Cards */
+.labs-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.lab-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    position: relative;
+}
+
+.lab-card:hover {
+    background-color: var(--bg-card-hover);
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+}
+
+.lab-icon {
+    font-size: 2.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 0.75rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lab-content {
+    flex: 1;
+}
+
+.lab-content h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+}
+
+.lab-content p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.action-arrow {
+    color: var(--accent-blue);
+    font-size: 0.9rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* View Headers & Back Navigation */
+.view-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.back-btn {
+    background: transparent;
+    border: none;
+    color: var(--accent-blue);
+    font-family: var(--font-main);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0.25rem 0;
+    transition: var(--transition-smooth);
+}
+
+.back-btn:hover {
+    color: var(--accent-blue-hover);
+}
+
+.view-header h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.section-subtitle {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+}
+
+/* Topics Grid */
+.topics-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.topic-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.topic-card:hover {
+    background-color: var(--bg-card-hover);
+    border-color: var(--border-hover);
+}
+
+.topic-card h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+}
+
+.topic-card p {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+.topic-link {
+    color: var(--accent-blue);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* Quiz Card & Options */
+.quiz-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-top: 1rem;
+}
+
+#question-container h3 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+}
+
+.options-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+}
+
+.option-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color);
+    padding: 1rem 1.25rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.option-label:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--border-hover);
+}
+
+.option-label input[type="radio"] {
+    margin-top: 0.25rem;
+    accent-color: var(--accent-blue);
+    cursor: pointer;
+}
+
+.option-label span {
+    color: var(--text-primary);
+    font-size: 0.95rem;
+}
+
+.quiz-footer {
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1.5rem;
+}
+
+/* Buttons */
+.primary-btn {
+    background: var(--accent-gradient);
+    color: #ffffff;
+    border: none;
+    padding: 0.75rem 1.75rem;
+    border-radius: 10px;
+    font-family: var(--font-main);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.2);
+}
+
+.primary-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(56, 189, 248, 0.3);
+}
+
+.secondary-btn {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    font-family: var(--font-main);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.secondary-btn:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+    border-color: var(--border-hover);
+}
+
+/* Results View */
+.result-container {
+    text-align: left;
+}
+
+.result-header-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.result-container h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.result-subtitle {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.result-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+#result-text {
+    color: var(--text-primary);
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.result-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Footer */
+.app-footer {
+    margin-top: auto;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}

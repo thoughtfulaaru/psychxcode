@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psych X Code - Self Discovery & Psychological Insight</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for modern typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- App Container -->
+    <div class="app-container">
+
+        <!-- Header / Navbar -->
+        <header class="app-header">
+            <div class="logo" onclick="app.goHome()">
+                <span class="logo-icon">✨</span>
+                <h1>Psych X Code</h1>
+            </div>
+            <nav>
+                <button class="nav-btn" onclick="app.goHome()">Home Labs</button>
+            </nav>
+        </header>
+
+        <!-- Main Content Area -->
+        <main>
+
+            <!-- VIEW 1: HOME / LAB SELECTOR -->
+            <section id="home-view" class="view active">
+                <div class="hero-section">
+                    <span class="badge">Created by a Psychologist</span>
+                    <h2>Discover Your Inner Patterns</h2>
+                    <p>Welcome to Psych X Code. Explore our interactive modules designed to help you understand your mind, navigate your relationships, and unlock personal growth.</p>
+                </div>
+
+                <div class="labs-grid">
+                    <!-- Mind Lab Card -->
+                    <div class="lab-card" onclick="app.selectLab('mind')">
+                        <div class="lab-icon">🧠</div>
+                        <div class="lab-content">
+                            <h3>Mind Lab</h3>
+                            <p>Discover how your mind handles stress, everyday decisions, communication, and mental habits.</p>
+                        </div>
+                        <span class="action-arrow">Explore &rarr;</span>
+                    </div>
+
+                    <!-- Love Lab Card -->
+                    <div class="lab-card" onclick="app.selectLab('love')">
+                        <div class="lab-icon">❤️</div>
+                        <div class="lab-content">
+                            <h3>Love Lab</h3>
+                            <p>Understand how you connect with others, set healthy personal boundaries, and handle disagreements.</p>
+                        </div>
+                        <span class="action-arrow">Explore &rarr;</span>
+                    </div>
+
+                    <!-- Childhood & Early Roots Card -->
+                    <div class="lab-card" onclick="app.selectLab('childhood')">
+                        <div class="lab-icon">🌱</div>
+                        <div class="lab-content">
+                            <h3>Childhood & Early Roots</h3>
+                            <p>Reflect on early life lessons and core beliefs that quietly guide your choices today.</p>
+                        </div>
+                        <span class="action-arrow">Explore &rarr;</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- VIEW 2: TOPICS SELECTOR -->
+            <section id="topics-view" class="view">
+                <div class="view-header">
+                    <button class="back-btn" onclick="app.goHome()">&larr; Back to Labs</button>
+                    <h2 id="lab-title">Lab Topics</h2>
+                </div>
+                <p class="section-subtitle">Choose a questionnaire module below to gain valuable self-discovery insights.</p>
+                
+                <div class="topics-grid" id="topics-grid">
+                    <!-- Dynamically populated via JavaScript -->
+                </div>
+            </section>
+
+            <!-- VIEW 3: ACTIVE QUIZ / QUESTIONNAIRE -->
+            <section id="quiz-view" class="view">
+                <div class="view-header">
+                    <button class="back-btn" onclick="app.backToTopics()">&larr; Back to Topics</button>
+                    <h2 id="quiz-title">Questionnaire</h2>
+                </div>
+
+                <div class="quiz-card">
+                    <div id="question-container">
+                        <!-- Dynamically populated question and options -->
+                    </div>
+                    
+                    <div class="quiz-footer">
+                        <button id="next-btn" class="primary-btn" onclick="app.handleNext()">Next Question</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- VIEW 4: RESULTS & INSIGHTS CONCLUSION -->
+            <section id="result-view" class="view">
+                <div class="result-container">
+                    <div class="result-header-icon">💡</div>
+                    <h2>Your Psychological Insights & Growth Guide</h2>
+                    <p class="result-subtitle">Here is a clear look at where you stand and gentle steps you can take to heal and grow.</p>
+
+                    <div class="result-card">
+                        <p id="result-text"></p>
+                    </div>
+
+                    <div class="result-actions">
+                        <button class="primary-btn" onclick="app.backToTopics()">Explore Another Topic</button>
+                        <button class="secondary-btn" onclick="app.goHome()">Return to Home Labs</button>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p>&copy; 2026 Psych X Code. Created for self-discovery, healing, and personal growth.</p>
+        </footer>
+
+    </div>
+
+    <!-- Link to JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
